@@ -16,7 +16,7 @@
 <body>
     <header>
        <div class="menu_side">
-        <h1>Playlist</h1>
+        <h1 id="cross">Playlist<i class="bi bi-x-lg"></i></h1>
         <div class="playlist">
             <h4 class="active"><span></span><i class="fa-solid fa-music"></i>Playlist</h4>
             <h4><span></span><i class="fa-solid fa-music"></i>Last listening</h4>
@@ -90,7 +90,7 @@
         <nav>
             <ul>
                 <li>Discover <span></span></li>
-                <li>MY LIST</li>
+                <li id="mylist">MY LIST</li>
                 <li>RADIO</li>
             </ul>
             <div class="search">
@@ -309,6 +309,7 @@
                 <i class="bi bi-play-fill" id="masterPlay"></i>
                 <i class="bi bi-skip-end-fill" id="next"></i>
                 <i class="bi bi-heart" id="heart"></i>
+                <p>added to playlist</p>
             </div>
             <span id="currentStart">0:00</span>
             <div class="bar">
@@ -323,7 +324,6 @@
                 <div class="vol_bar" id="vol_bar"></div>
                 <div class="dot" id="vol_dot"></div>
             </div>
-
        </div>
     </header>
     <script src="app.js"></script>

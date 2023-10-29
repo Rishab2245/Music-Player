@@ -238,6 +238,16 @@ header .master_play .icon{
     color: white;
     margin: 0px 3rem 0px 40px;
     display: flex;
+    position: relative;
+}
+header .master_play .icon span{
+    font-size: 0.8rem;
+    color: white;
+    position: absolute;
+    width: 110px;
+    top:-70%;
+    background-color: black;
+    display: none;
 }
 header .master_play .icon .bi{
     cursor: pointer;
@@ -693,15 +703,32 @@ position:absolute;
     }
 }
 
-/* .menu_side .playlistclass{
+.menu_side.playlistclass{
     display: block;
     width: 100%;
 }
-.song_side .playlistclass{
+.song_side.playlistclass{
     display: none;
-} */
+}
 
 
+.icon p{
+    font-size: 0.8rem;
+    width: 110px;
+    position: absolute;
+    top: -20px;
+    background-color: black;
+    display: none;
+    transition: 0.3s linear;
+}
+
+#cross i{
+    position: absolute;
+    right: 2rem;
+}
+#cross {
+   position: relative;
+}
 
 
 

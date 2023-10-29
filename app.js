@@ -103,7 +103,7 @@ const makeAllBackgrounds = () =>{
         })
     }
 
-let index = 0;
+let index = 1;
 let poster_master_play = document.getElementById('poster_master_play');
 let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
@@ -332,11 +332,10 @@ document.addEventListener('keydown',(e)=>{
 })
 let heart = document.getElementById('heart');
 let menu_song = document.querySelector(".menu_song");
-let no = 7
+let no = 7;
+let prev = 0;
 heart.addEventListener('click',()=>{
-    if(index==0){
-        return ;
-    }
+  
     heart.classList.add('bi-heart-fill');
     heart.classList.remove('bi-heart');
     let name;
@@ -349,19 +348,44 @@ heart.addEventListener('click',()=>{
     console.log(index,name);
     let li = document.createElement("li");
     li.classList.add("songItem");
-    let string =  `<span>0${no}</span><img src="img/${index}.jpg"></div><h5>${name}</div></h5> <i class="fa-sharp playlistPlay fa-solid fa-circle-play" id="6"></i>`;
+    let string;
+    if(no<10){
+    string =  `<span>0${no}</span><img src="img/${index}.jpg"></div><h5>${name}</div></h5> <i class="fa-sharp playlistPlay fa-solid fa-circle-play" id="6"></i>`;}
+    else{
+         string =  `<span>${no}</span><img src="img/${index}.jpg"></div><h5>${name}</div></h5> <i class="fa-sharp playlistPlay fa-solid fa-circle-play" id="6"></i>`;}
+    
     li.innerHTML=string;
-    menu_song.append(li);
-    no++;
-});
-// let song_side=document.querySelector(".song_side");
-// let menu_side=document.querySelector(".menu_side");
-// let mylist=document.querySelector("#mulist");
-// mylist.addEventListener('click',()=>{
-//     song_side.classList.toggle("playlistclass")
-//     menu_side.classList.toggle("playlistclass")
-// })
+    if (prev<index){
+        menu_song.append(li);
+        no++;
 
+    }
+    prev = index;
+    document.querySelector(".icon p").style.display="block";
+
+
+    setTimeout(()=>{
+
+        document.querySelector(".icon p").style.display="none";
+    },1000);
+
+
+    
+    
+});
+let song_side=document.querySelector(".song_side");
+let menu_side=document.querySelector(".menu_side");
+let mylist=document.querySelector("#mylist");
+mylist.addEventListener('click',()=>{
+    song_side.classList.toggle("playlistclass");
+    menu_side.classList.toggle("playlistclass");
+})
+
+let cross = document.querySelector("#cross i");
+cross.addEventListener('click',()=>{
+    song_side.classList.toggle("playlistclass");
+    menu_side.classList.toggle("playlistclass");
+});
 
 
 
